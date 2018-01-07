@@ -1,19 +1,41 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Type</title>
+  <iframe src="navbar.html" height= "40px" width="100%" class="navbar" style="border:none;"></iframe>
 <h1>Type</h1>
-<p id="demo">A virus has reached every computer on the internet. The computers can no longer copy and paste text. Your job is to copy classic writing by hand. All you have to do is type the text below to get paid. Unfortunately every mistake you make is discounted on your paycheck.</p>
+<p id="demo">A virus has reached every computer on the internet. The computers can no longer copy and paste text. Your job is copy texts by hand. All you have to do is type the text below to get paid. Unfortunately every mistake you make is discounted on your paycheck.</p>
+<p id="author"></p>
 <p id="text">Type to Start. 
 </p>
-<!--this two lines of code fetch external file and use as input-->
+<!--this two lines of code fetch external file and use as input(src:https://stackoverflow.com/questions/7346563/loading-local-json-file-->
    <script src="data.js" ></script>
    <script src="main.js" ></script>
+   <script>
+    if (localStorage.getItem("author") == null){
+  var author = "\"Sonnet 18\" by William Shakespeare (1564-1616)";}
+  else {
+    author = JSON.parse(localStorage.getItem('author'));
+  }
+    document.getElementById("author").innerHTML = author;</script>
 <script type="text/javascript">
   var flag = false; 
   var i = 0;
-  var Mon = 0;
-  var choice = "a"
+  if (localStorage.getItem("Mon") == null){
+  var Mon = 0;}
+  else {
+    Mon = JSON.parse(localStorage.getItem('Mon')); 
+    //to clear the mon variable type in console window.localStorage.clear("Mon");
+  }
+  if (localStorage.getItem("Choice") == null){
+  var Choice = 'a';}
+  else {
+    Choice = JSON.parse(localStorage.getItem('Choice'));
+  }
   function myKeyPress(e){
     var keynum;
     var x = document.getElementById("text");
-	var str = DATA[choice]//the letter in quotes choose the text in data.js,
+	var str = DATA[Choice]//the letter in quotes choose the text in data.js,
     var max = str.length;
     var once = true;
     var res = 0;
@@ -34,9 +56,11 @@
       if (str.charAt(i-1)===String.fromCharCode(keynum)){
         x.style.color = "green"; //user typed right
         Mon += 1;
+        localStorage.setItem('Mon', JSON.stringify(Mon)); //http://www.html5gamedevs.com/topic/3456-save-game-data-locally/
       }else{
         x.style.color = "red"; //user typed wrong
         Mon -= 1;
+        localStorage.setItem('Mon', JSON.stringify(Mon));
       }
       document.getElementById("money").innerHTML = "Money: " + Mon;
       flag = false;
@@ -44,7 +68,11 @@
   }
     //alert(String.fromCharCode(keynum));
 </script>
+</head>
+<body>
 <form>
   <input type="text" onkeypress="return myKeyPress(event)" id="userinput"/>
 </form>
-<p id="money">Money:</p>
+<p id="money" >Money: </p>
+</body>
+</html>
