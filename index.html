@@ -4,7 +4,7 @@
   <title>Type</title>
   <iframe src="navbar.html" height= "40px" width="100%" class="navbar" style="border:none;"></iframe>
 <h1>Type</h1>
-<p id="demo">A virus has reached every computer on the internet. The computers can no longer copy and paste text. Your job is copy texts by hand. All you have to do is type the text below to get paid. Unfortunately every mistake you make is discounted on your paycheck.</p>
+<p id="demo">A virus has reached every computer on the internet. The computers can no longer copy and paste text. Your job is to manually copy words. All you have to do is type start typing "Type to Start". Unfortunately every mistake you make is discounted on your paycheck.</p>
 <p id="author"></p>
 <p id="text">Type to Start. 
 </p>
@@ -36,7 +36,7 @@
   function myKeyPress(e){
     var keynum;
     var x = document.getElementById("text");
-	var str = DATA[Choice]//the letter in quotes choose the text in data.js,
+	var str = DATA[Choice];//the letter in quotes choose the text in data.js,
     var max = str.length;
     var once = true;
     var res = 0;
@@ -63,25 +63,23 @@
         Mon -= 1;
         localStorage.setItem('Mon', JSON.stringify(Mon));
       }
-      if (Mon>1000){
         document.getElementById("money").innerHTML = "Money: " +
           Mon.toExponential(3);
-      }else {document.getElementById("money").innerHTML = "Money: " + Mon;
-      }
       flag = false;
     }
   }
     //alert(String.fromCharCode(keynum));
 </script>
-<script>
-  //This script is for buying buildings and upgrades
-  //<button onclick="DrinkingBird()">DrinkingBird (150)</button>
-</script>
+<!-- inspired on http://dhmholley.co.uk/incrementals.html-->
+  
 </head>
 <body>
 <form>
   <input type="text" onkeypress="return myKeyPress(event)" id="userinput"/>
 </form>
 <p id="money" >Money: </p>
+<button onclick="BuyDrinkingBird()">DrinkingBird</button>
+  Drinking Birds: <span id="DrinkingBird">0</span><br />
+  Cost: <span id="DrinkingBirdCost">10</span>
 </body>
 </html>
