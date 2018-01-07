@@ -2,15 +2,18 @@
 <p id="demo">A virus has reached every computer on the internet. The computers can no longer copy and paste text. Your job is to copy classic writing by hand. All you have to do is type the text below to get paid. Unfortunately every mistake you make is discounted on your paycheck.</p>
 <p id="text">Type to Start. 
 </p>
+<!--this two lines of code fetch external file and use as input-->
+   <script src="data.js" ></script>
+   <script src="main.js" ></script>
 <script type="text/javascript">
   var flag = false; 
   var i = 0;
   var Mon = 0;
+  var choice = "a"
   function myKeyPress(e){
     var keynum;
     var x = document.getElementById("text");
-	var str = "Type to Start. HOPE. By Emily Dickinson. HOPE is the thing with feathers That perches in the soul, And sings the tune without the words, And never stops at all, And sweetest in the gale is heard; And sore must be the storm That could abash the little bird That kept so many warm. I 've heard it in the chillest land, And on the strangest sea; Yet, never, in extremity, It asked a crumb of me. " 
-    
+	var str = DATA[choice]//the letter in quotes choose the text in data.js,
     var max = str.length;
     var once = true;
     var res = 0;
@@ -23,13 +26,11 @@
     }else {
     var flag = true;
     }
-    
     while (flag == true){ //for the loop go through the text to write
       res = str.slice(i+1,i+15); //erases the text that was already typed
       //document.getElementById("demo").innerHTML += String.fromCharCode(keynum);
       document.getElementById("text").innerHTML = res;
       i+=1;
-      
       if (str.charAt(i-1)===String.fromCharCode(keynum)){
         x.style.color = "green"; //user typed right
         Mon += 1;
@@ -42,9 +43,7 @@
     }
   }
     //alert(String.fromCharCode(keynum));
-  
 </script>
-
 <form>
   <input type="text" onkeypress="return myKeyPress(event)" id="userinput"/>
 </form>
