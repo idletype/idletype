@@ -22,6 +22,7 @@
 	<button onclick="buttonK()">"The Happy Prince" by Oscar Wilde (1854-1900)"
 </button>
 	<button onclick="buttonL()">"Can't Take My Eyes Off You" by Frankie Valli (born 1934)</button>
+	<button onclick="buttonM()">"Canção do Exílio" de Gonçalves Dias (1823-1864)</button>
 <br>
 <script>
 function buttonA() {
@@ -96,10 +97,12 @@ function buttonL() {
 	localStorage.setItem('Choice', JSON.stringify(Choice));
 	localStorage.setItem('author', JSON.stringify(author));
 }
-
-
-
-
+function buttonM() {
+	Choice = 'm';
+	author = "\"Canção do Exílio\" de Gonçalves Dias (1823-1864)";
+	localStorage.setItem('Choice', JSON.stringify(Choice));
+	localStorage.setItem('author', JSON.stringify(author));
+}
 </script>
 </script>
 </body>

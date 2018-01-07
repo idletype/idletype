@@ -63,16 +63,20 @@
         Mon -= 1;
         localStorage.setItem('Mon', JSON.stringify(Mon));
       }
-      document.getElementById("money").innerHTML = "Money: " + Mon;
+      if (Mon>1000){
+        document.getElementById("money").innerHTML = "Money: " +
+          Mon.toExponential(3);
+      }else {document.getElementById("money").innerHTML = "Money: " + Mon;
+      }
       flag = false;
     }
   }
     //alert(String.fromCharCode(keynum));
 </script>
-<!--<script>
+<script>
   //This script is for buying buildings and upgrades
-  
-</script>-->
+  //<button onclick="DrinkingBird()">DrinkingBird (150)</button>
+</script>
 </head>
 <body>
 <form>
