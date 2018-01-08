@@ -72,7 +72,7 @@ function BuyMonkey(){
     localStorage.setItem('MonkeyCost', JSON.stringify(MonkeyCost));
 };
 window.setInterval(function(){
-	
+	localStorage.setItem('Mon', JSON.stringify(Mon));
 	cookieClick(DrinkingBird,Monkey);
 	//Drinking Bird
 	document.getElementById('DrinkingBird').innerHTML = DrinkingBird;

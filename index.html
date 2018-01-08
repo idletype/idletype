@@ -2,7 +2,8 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Type</title>
-  <iframe src="navbar.html" height= "40px" width="100%" class="navbar" style="border:none;"></iframe>
+  <!--<iframe src="navbar.html" height= "40px" width="100%" class="navbar" style="border:none;"></iframe>-->
+<table><th><td>
 <h1>Type</h1>
 <p id="demo">A virus has reached every computer on the internet. The computers can no longer copy and paste text. Your job is to manually copy words. All you have to do is type start typing "Type to Start". Unfortunately every mistake you make is discounted on your paycheck.</p>
 <p id="author"></p>
@@ -87,5 +88,121 @@
 <button onclick="BuyMonkey()">Monkey</button>
   Monkeys: <span id="Monkey">0</span><br />
   Cost: <span id="MonkeyCost">100</span>
+</td></th><th><td>
+  <h1>Choose the text</h1>
+  <p>Poetry:</p>
+  <button onclick="buttonA()">"Sonnet 18" by William Shakespeare (1564-1616)</button>
+  <button onclick="buttonB()">"Holy Sonnet 10: Death, Be Not Proud" by John Donne (1572-1631)</button>
+  <button onclick="buttonC()">"Daffodils" by William Wordsworth (1770-1850)</button>
+  <button onclick="buttonD()">A Psalm of Life" by Henry Wadsworth Longfellow (1807-1882)"</button>
+  <button onclick="buttonE()">On His Blindness" by John Milton (1608-1674)"</button>
+  <button onclick="buttonF()">"The Tiger" by William Blake (1757-1827)"</button>
+  <button onclick="buttonG()">"Ode on a Grecian Urn" by John Keats (1795-1821)"</button>
+  <button onclick="buttonH()">Ozymandias" by Percy Bysshe Shelley (1792-1822)"
+</button>
+  <button onclick="buttonI()">"The New Colossus" by Emma Lazarus (1849-1887)"
+</button>
+  <button onclick="buttonJ()">"The Road Not Taken" by Robert Frost (1874-1963)"
+</button>
+  <p>Short Stories</p>
+  <button onclick="buttonK()">"The Happy Prince" by Oscar Wilde (1854-1900)"
+</button>
+  <p>Music Lyrics:</p>
+  <button onclick="buttonL()">"Can't Take My Eyes Off You" by Frankie Valli (born 1934)</button>
+  <!--<button onclick="buttonM()">"Canção do Exílio" de Gonçalves Dias (1823-1864)</button>-->
+<br>
+<script>
+function buttonA() {
+    Choice = 'a';
+    author = "\"Sonnet 18\" by William Shakespeare (1564-1616)";
+    localStorage.setItem('Choice', JSON.stringify(Choice));
+    localStorage.setItem('author', JSON.stringify(author));
+    location.reload();
+}
+function buttonB() {
+  Choice = 'b';
+  author = "\"Holy Sonnet 10: Death, Be Not Proud\" by John Donne (1572-1631)";
+  localStorage.setItem('Choice', JSON.stringify(Choice));
+  localStorage.setItem('author', JSON.stringify(author));
+  location.reload();
+}
+function buttonC() {
+  Choice = 'c';
+  author = "\"Daffodils\" by William Wordsworth (1770-1850)";
+  localStorage.setItem('Choice', JSON.stringify(Choice));
+  localStorage.setItem('author', JSON.stringify(author));
+  location.reload();
+}
+function buttonD() {
+  Choice = 'd';
+  author = "\"A Psalm of Life\" by Henry Wadsworth Longfellow (1807-1882)";
+  localStorage.setItem('Choice', JSON.stringify(Choice));
+  localStorage.setItem('author', JSON.stringify(author));
+  location.reload();
+}
+function buttonE() {
+  Choice = 'e';
+  author = "\"On His Blindness\" by John Milton (1608-1674)";
+  localStorage.setItem('Choice', JSON.stringify(Choice));
+  localStorage.setItem('author', JSON.stringify(author));
+  location.reload();
+}
+function buttonF() {
+  Choice = 'f';
+  author = "\"The Tiger\" by William Blake (1757-1827)";
+  localStorage.setItem('Choice', JSON.stringify(Choice));
+  localStorage.setItem('author', JSON.stringify(author));
+  location.reload();
+}
+function buttonG() {
+  Choice = 'g';
+  author = "\"Ode on a Grecian Urn\" by John Keats (1795-1821)";
+  localStorage.setItem('Choice', JSON.stringify(Choice));
+  localStorage.setItem('author', JSON.stringify(author));
+  location.reload();
+}
+function buttonH() {
+  Choice = 'h';
+  author = "\"Ozymandias\" by Percy Bysshe Shelley (1792-1822)";
+  localStorage.setItem('Choice', JSON.stringify(Choice));
+  localStorage.setItem('author', JSON.stringify(author));
+  location.reload();
+}
+function buttonI() {
+  Choice = 'i';
+  author = "\"The New Colossus\" by Emma Lazarus (1849-1887)";
+  localStorage.setItem('Choice', JSON.stringify(Choice));
+  localStorage.setItem('author', JSON.stringify(author));
+  location.reload();
+}
+function buttonJ() {
+  Choice = 'j';
+  author = "\"The Road Not Taken\" by Robert Frost (1874-1963)";
+  localStorage.setItem('Choice', JSON.stringify(Choice));
+  localStorage.setItem('author', JSON.stringify(author));
+  location.reload();
+}
+function buttonK() {
+  Choice = 'k';
+  author = "\"The Happy Prince\" by Oscar Wilde (1854-1900)";
+  localStorage.setItem('Choice', JSON.stringify(Choice));
+  localStorage.setItem('author', JSON.stringify(author));
+  location.reload();
+}
+function buttonL() {
+  Choice = 'l';
+  author = "\"Can't Take My Eyes Off You\" by Frankie Valli (born 1934)";
+  localStorage.setItem('Choice', JSON.stringify(Choice));
+  localStorage.setItem('author', JSON.stringify(author));
+  location.reload();
+}
+/*function buttonM() {
+  Choice = 'm';
+  author = "\"Canção do Exílio\" de Gonçalves Dias (1823-1864)";
+  localStorage.setItem('Choice', JSON.stringify(Choice));
+  localStorage.setItem('author', JSON.stringify(author));
+}*/
+</script>
+</td></th></table>
 </body>
 </html>
