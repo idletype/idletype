@@ -3,9 +3,17 @@
 })()
 function cookieClick(number){
     Mon = Mon + (0.01*number);
-    document.getElementById("money").innerHTML = "Money: " + Mon.toExponential(3);
+    if (Mon>1000){
+        document.getElementById("money").innerHTML = "Money: " +
+          Mon.toExponential(3);
+      }else {document.getElementById("money").innerHTML = "Money: " + Mon.toFixed(2);
+      }
+    
 };
-  //This script is for buying buildings and upgrades
+  //This script is for buying items and upgrades
+  //Items: drinking bird, monkey, keyboard crusher, cat, bot, 
+  //Upgrades: typewriter, IBM Selectric typewriter, computer, wrist strap, brain to machine
+
   if (localStorage.getItem("DrinkingBird") == null){
   var DrinkingBird = 0;}
   else {
@@ -19,8 +27,11 @@ function cookieClick(number){
       Mon = Mon - DrinkingBirdCost;
       localStorage.setItem('Mon', JSON.stringify(Mon));                          //removes the cookies spent
         document.getElementById('DrinkingBird').innerHTML = DrinkingBird;  //updates the number of cursors for the user
-        document.getElementById('money').innerHTML = Mon;  //updates the number of cookies for the user
-    };
+        if (Mon>1000){
+        document.getElementById("money").innerHTML = "Money: " +
+          Mon.toExponential(3);
+      }else {document.getElementById("money").innerHTML = "Money: " + Mon.toFixed(2);
+      }    };
     var nextCost = Math.floor(10 * Math.pow(1.1,DrinkingBird));       //works out the cost of the next cursor
     document.getElementById('DrinkingBirdCost').innerHTML = nextCost;  //updates the cursor cost for the user
 };
