@@ -1,44 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<style>
-#myProgress {
-  width: 100px;
-  background-color: #ddd;
-}
+<head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+    <script type="text/javascript" src="progressbar.js"></script>
 
-#myBar {
-  width: 0%;
-  height: 30px;
-  background-color: #4CAF50;
-}
-</style>
+    <link rel="stylesheet" type="text/css" href="progressbar.css">
+    <link rel="stylesheet" type="text/css" href="skins/tiny-green/progressbar.css">
+
+</head>
 <body>
+    <div id="progressBar1" class="tiny-green"><div></div></div>
+    <div id="progressBar2" class="tiny-green"><div></div></div>
 
-<h1>JavaScript Progress Bar</h1>
-
-<div id="myProgress">
-  <div id="myBar"></div>
-</div>
-
-<br>
-<button onclick="move()">Click Me</button> 
-
-<script>
-function move() {
-  var elem = document.getElementById("myBar");   
-  var width = 0;
-  var id = setInterval(frame, 10);
-  function frame() {
-    if (width >= 100) {
-      clearInterval(id);
-      width = 0;
-    } else {
-      width++; 
-      elem.style.width = width + '%'; 
-    }
-  }
-}
-</script>
+    <script>
+        progressBar1(105, $('#progressBar1'));
+        progressBar2(15, $('#progressBar2'));
+    </script>
 
 </body>
 </html>

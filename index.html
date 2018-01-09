@@ -21,6 +21,8 @@
   }
     document.getElementById("author").innerHTML = author;</script>
 <script type="text/javascript">
+  var TypeWriter = 0;
+  var TypeWriterCost = 100;
   var flag = false; 
   var i = 0;
   if (localStorage.getItem("Mon") == null){
@@ -57,7 +59,7 @@
       i+=1;
       if (str.charAt(i-1)===String.fromCharCode(keynum)){
         x.style.color = "green"; //user typed right
-        Mon += 1;
+        Mon += 1+(0.05*TypeWriter);
       }else{
         x.style.color = "red"; //user typed wrong
         Mon -= 1;
@@ -87,7 +89,8 @@
   Monkeys: <span id="Monkey">0</span><br />
   Cost: <span id="MonkeyCost">100</span>
 </td></th><th><td>
-  <h1>Choose the text</h1>
+  <button onclick="HideText()">Hide or show the menu of texts available.</button>
+  <div id="ChooseTheText">
   <p>Poetry:</p>
   <button onclick="buttonA()">"Sonnet 18" by William Shakespeare (1564-1616)</button>
   <button onclick="buttonB()">"Holy Sonnet 10: Death, Be Not Proud" by John Donne (1572-1631)</button>
@@ -109,7 +112,16 @@
   <button onclick="buttonL()">"Can't Take My Eyes Off You" by Frankie Valli (born 1934)</button>
   <!--<button onclick="buttonM()">"Canção do Exílio" de Gonçalves Dias (1823-1864)</button>-->
 <br>
+</div>
 <script>
+  function HideText() {
+    var x = document.getElementById("ChooseTheText")
+     if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+  }
 function buttonA() {
     Choice = 'a';
     author = "\"Sonnet 18\" by William Shakespeare (1564-1616)";
@@ -201,6 +213,30 @@ function buttonL() {
   localStorage.setItem('author', JSON.stringify(author));
 }*/
 </script>
-</td></th></table>
+</td></th>
+<!--<th><td>
+<script>
+  function BuyTypeWriter(){
+    document.getElementById('TypewriterDIV').style.display = "none";
+        //localStorage.setItem('hideTypeWriter', JSON.stringify(hideTypeWriter));
+    if(Mon >= TypeWriterCost){                                   //checks that the player can afford the cursor
+        TypeWriter = TypeWriter + 1;                             //increases number of cursors
+        localStorage.setItem('TypeWriter', JSON.stringify(TypeWriter));
+      Mon = Mon - TypeWriterCost;
+      localStorage.setItem('Mon', JSON.stringify(Mon));                          //removes the cookies spent
+        document.getElementById('TypeWriter').innerHTML = TypeWriter;  //updates the number of cursors for the user
+        if (Mon>1000){
+        document.getElementById("money").innerHTML = "Money: " +
+          Mon.toExponential(3);
+      }else {document.getElementById("money").innerHTML = "Money: " + Mon.toFixed(2);
+      }    };
+};
+</script>
+  <h1>Upgrades</h1>
+  <div id="TypewriterDIV">
+  <button onclick="BuyTypeWriter()">TypeWriter</button>
+  Cost: <span id="DrinkingBirdCost">100</span><br>
+</div>
+</td></th>--></table>
 </body>
 </html>
